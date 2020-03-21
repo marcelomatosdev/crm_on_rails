@@ -9,5 +9,7 @@ class CustomersController < ApplicationController
     @customers = Customer.all.order(:name)
   end
 
-  def missing_email; end
+  def missing_email
+    @customers = Customer.where('email==""').order(:name)
+  end
 end

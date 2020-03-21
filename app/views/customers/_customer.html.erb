@@ -1,20 +1,23 @@
 
 <div class="columns is-multiline">
 <%@customers.each do |customer|%>
-  <div class="column is-one-third">
+  <div class="column is-one-quarter">
     <div class="card">
-      <div class="card-content">
+    <header class="card-header">
+      <p class="card-header-title"><%=customer.name%></p>
+    </header>
+
+    <div class="card-image">
+    <figure class="image is-4by3">
+      <%=image_tag(customer.image, size: "100")%>
+    </figure>
+    </div>
+    <div class="card-content">
         <div class="media">
-          <div class="media-left">
-            <figure >
-              <%=image_tag(customer.image, size: "100")%>
-              </figure>
-          </div>
           <div class="media-content">
-            <p class="title is-4"><%=link_to customer.name, root_path%></p>
-            <p> <%=customer.phone%></p>
-            <p> <%=customer.email%></p>
-            <p> <%=customer.notes%></p>
+            <p> Phone: <%=customer.phone%></p>
+            <p> Email: <%=customer.email%></p>
+            <p> Notes: <%=customer.notes%></p>
           </div>
         </div>
       </div>
